@@ -48,7 +48,7 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 endif()
 
 # Fixes warning when using boost from brew
-set(Boost_USE_MULTITHREADED TRUE)
+#set(Boost_USE_MULTITHREADED TRUE)
 
 ####################################
 # Dependencies
@@ -56,7 +56,7 @@ set(Boost_USE_MULTITHREADED TRUE)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
-find_package(Boost COMPONENTS unit_test_framework system program_options)
+#find_package(Boost COMPONENTS unit_test_framework system program_options)
 find_package(CURL REQUIRED MODULE)
 
 
