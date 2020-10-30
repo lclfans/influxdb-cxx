@@ -1,0 +1,36 @@
+This library is for influxdb C++ client.
+the original source is located at https://github.com/awegrzyn/influxdb-cxx
+We have updated it to support below functions:
+1. using c++11 instead of c++17 for linux build.
+2. add windows version, for windows the c++ standard is still c++17
+
+Build:
+  1. Linux build:
+    0) first install libcurl
+    1) cd ./influxdb-cxx/build/
+    2) rm -rf *
+    3) cmake ..
+    4) make
+    after build done, the library is located at ./influxdb-cxx/build/lib/libInfluxDB.so
+    the header files are at influxdb-cxx/include/
+  2. Windows build:
+    1) use vs2017 to build it, the sln project is at ../cmake_build/influxdb-cxx.sln
+    2) the windows build is also depends on libcurl. 
+       now they are at EIConfigTool/3rdparty/influxdb-cxx/src/win32/lib/
+       so, you need to update the vs2017 project to use the right libcurl location.
+    3) build release mode
+       after build done, the library is located at ..\cmake_build\lib\Release
+    
+  3.build Navidia Nano(arm64)
+    1) install dependices
+       sudo apt-get install libcurl4
+       sudo apt-get install libcurl4-gnutls-dev
+       sudo apt-get install libcurl4-nss-dev
+       sudo apt-get install libcurl4-openssl-dev
+     
+     after installation, the header files are at /usr/include/aarch64-linux-gnu/curl
+     the libs are at /usr/lib/aarch64-linux-gnu/
+    2) cd ./influxdb-cxx/build/
+       rm -rf *
+       cmake -DCURL_LIBRARY=/usr/lib/aarch64-linux-gnu/libcurl.so.4 -DCURL_INCLUDE_DIR=/usr/include/aarch64-linux-gnu ..
+    3) the lib is at src/influxdb-cxx/build/lib

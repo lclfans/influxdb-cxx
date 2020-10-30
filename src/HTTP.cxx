@@ -55,7 +55,19 @@ static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *use
 void HTTP::initCurlRead(const std::string& url)
 {
   mReadUrl = url + "&q=";
-  mReadUrl.insert(mReadUrl.find("?"), "/query");
+
+  //std::string writeUrl = url;
+  auto position = mReadUrl.find("?");
+  if (position == std::string::npos) {
+     throw InfluxDBException("HTTP::initCurl", "Database not specified");
+  }
+  if (mReadUrl.at(position - 1) != '/') {
+    mReadUrl.insert(position, "/query");
+  } else {
+    mReadUrl.insert(position, "query");
+  }
+
+  //mReadUrl.insert(mReadUrl.find("?"), "query");
   readHandle = curl_easy_init();
   curl_easy_setopt(readHandle, CURLOPT_SSL_VERIFYPEER, 0); 
   curl_easy_setopt(readHandle, CURLOPT_CONNECTTIMEOUT, 10);
@@ -80,7 +92,7 @@ std::string HTTP::query(const std::string& query)
     throw InfluxDBException("HTTP::query", curl_easy_strerror(response));
   }
   if (responseCode !=  200) {
-    throw InfluxDBException("HTTP::query", "Status code: " + std::to_string(responseCode));
+    throw InfluxDBException("HTTP::query", "Status code: " + std::to_string(responseCode)+ fullUrl);
   }
   return buffer;
 }

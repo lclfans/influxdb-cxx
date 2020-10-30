@@ -14,10 +14,22 @@
 #include "Transport.h"
 #include "Point.h"
 
+#ifndef INFLUX_API
+# ifdef _WIN32
+	#ifdef INFLUX_LIB
+		#define  INFLUX_API  __declspec(dllexport)
+	#else
+		#define  INFLUX_API  __declspec(dllimport)
+	#endif
+# else
+    #define  INFLUX_API
+# endif
+#endif
+
 namespace influxdb
 {
 
-class InfluxDB
+class INFLUX_API InfluxDB
 {
   public:
     /// Disable copy constructor
@@ -49,7 +61,7 @@ class InfluxDB
     /// Adds a global tag
     /// \param name
     /// \param value
-    void addGlobalTag(std::string_view name, std::string_view value);
+    void addGlobalTag(std::string& name, std::string& value);
 
   private:
     /// Buffer for points

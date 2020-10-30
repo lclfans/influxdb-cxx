@@ -1,0 +1,4 @@
+D:/EIconfig/code/EIConfigTool/3rdparty/influxdb-cxx/src/cmake_build/CMakeFiles/InfluxDB.dir
+D:/EIconfig/code/EIConfigTool/3rdparty/influxdb-cxx/src/cmake_build/CMakeFiles/INSTALL.dir
+D:/EIconfig/code/EIConfigTool/3rdparty/influxdb-cxx/src/cmake_build/CMakeFiles/ALL_BUILD.dir
+D:/EIconfig/code/EIConfigTool/3rdparty/influxdb-cxx/src/cmake_build/CMakeFiles/ZERO_CHECK.dir

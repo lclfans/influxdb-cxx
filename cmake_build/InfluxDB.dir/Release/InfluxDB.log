@@ -1,0 +1,81 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Output 目录未以斜杠结尾。  此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Output 目录。
+  Building Custom Rule D:/EIconfig/code/EIConfigTool/3rdparty/influxdb-cxx/src/influxdb-cxx/CMakeLists.txt
+  InfluxDB.cxx
+d:\eiconfig\code\eiconfigtool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\Point.h(72): warning C4251: “influxdb::Point::mMeasurement”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“influxdb::Point”的客户端使用
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\xstring(4373): note: 参见“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”的声明
+d:\eiconfig\code\eiconfigtool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\Point.h(75): warning C4251: “influxdb::Point::mTimestamp”: class“std::chrono::time_point<std::chrono::system_clock,std::chrono::system_clock::duration>”需要有 dll 接口由 class“influxdb::Point”的客户端使用
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\chrono(770): note: 参见“std::chrono::time_point<std::chrono::system_clock,std::chrono::system_clock::duration>”的声明
+d:\eiconfig\code\eiconfigtool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\Point.h(78): warning C4251: “influxdb::Point::mTags”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“influxdb::Point”的客户端使用
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\xstring(4373): note: 参见“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”的声明
+d:\eiconfig\code\eiconfigtool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\Point.h(81): warning C4251: “influxdb::Point::mFields”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“influxdb::Point”的客户端使用
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\xstring(4373): note: 参见“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”的声明
+D:\EIconfig\code\EIConfigTool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\InfluxDB.h(68): warning C4251: “influxdb::InfluxDB::mBuffer”: class“std::deque<std::string,std::allocator<_Ty>>”需要有 dll 接口由 class“influxdb::InfluxDB”的客户端使用
+          with
+          [
+              _Ty=std::string
+          ]
+  D:\EIconfig\code\EIConfigTool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\InfluxDB.h(68): note: 参见“std::deque<std::string,std::allocator<_Ty>>”的声明
+          with
+          [
+              _Ty=std::string
+          ]
+D:\EIconfig\code\EIConfigTool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\InfluxDB.h(77): warning C4251: “influxdb::InfluxDB::mTransport”: class“std::unique_ptr<influxdb::Transport,std::default_delete<_Ty>>”需要有 dll 接口由 class“influxdb::InfluxDB”的客户端使用
+          with
+          [
+              _Ty=influxdb::Transport
+          ]
+  D:\EIconfig\code\EIConfigTool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\InfluxDB.h(42): note: 参见“std::unique_ptr<influxdb::Transport,std::default_delete<_Ty>>”的声明
+          with
+          [
+              _Ty=influxdb::Transport
+          ]
+D:\EIconfig\code\EIConfigTool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\InfluxDB.h(83): warning C4251: “influxdb::InfluxDB::mGlobalTags”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“influxdb::InfluxDB”的客户端使用
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\xstring(4373): note: 参见“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”的声明
+  Point.cxx
+D:\EIconfig\code\EIConfigTool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\Point.h(72): warning C4251: “influxdb::Point::mMeasurement”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“influxdb::Point”的客户端使用
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\xstring(4373): note: 参见“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”的声明
+D:\EIconfig\code\EIConfigTool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\Point.h(75): warning C4251: “influxdb::Point::mTimestamp”: class“std::chrono::time_point<std::chrono::system_clock,std::chrono::system_clock::duration>”需要有 dll 接口由 class“influxdb::Point”的客户端使用
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\chrono(770): note: 参见“std::chrono::time_point<std::chrono::system_clock,std::chrono::system_clock::duration>”的声明
+D:\EIconfig\code\EIConfigTool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\Point.h(78): warning C4251: “influxdb::Point::mTags”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“influxdb::Point”的客户端使用
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\xstring(4373): note: 参见“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”的声明
+D:\EIconfig\code\EIConfigTool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\Point.h(81): warning C4251: “influxdb::Point::mFields”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“influxdb::Point”的客户端使用
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\xstring(4373): note: 参见“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”的声明
+  InfluxDBFactory.cxx
+d:\eiconfig\code\eiconfigtool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\Point.h(72): warning C4251: “influxdb::Point::mMeasurement”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“influxdb::Point”的客户端使用
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\xstring(4373): note: 参见“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”的声明
+d:\eiconfig\code\eiconfigtool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\Point.h(75): warning C4251: “influxdb::Point::mTimestamp”: class“std::chrono::time_point<std::chrono::system_clock,std::chrono::system_clock::duration>”需要有 dll 接口由 class“influxdb::Point”的客户端使用
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\chrono(770): note: 参见“std::chrono::time_point<std::chrono::system_clock,std::chrono::system_clock::duration>”的声明
+d:\eiconfig\code\eiconfigtool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\Point.h(78): warning C4251: “influxdb::Point::mTags”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“influxdb::Point”的客户端使用
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\xstring(4373): note: 参见“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”的声明
+d:\eiconfig\code\eiconfigtool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\Point.h(81): warning C4251: “influxdb::Point::mFields”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“influxdb::Point”的客户端使用
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\xstring(4373): note: 参见“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”的声明
+d:\eiconfig\code\eiconfigtool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\InfluxDB.h(68): warning C4251: “influxdb::InfluxDB::mBuffer”: class“std::deque<std::string,std::allocator<_Ty>>”需要有 dll 接口由 class“influxdb::InfluxDB”的客户端使用
+          with
+          [
+              _Ty=std::string
+          ]
+  d:\eiconfig\code\eiconfigtool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\InfluxDB.h(68): note: 参见“std::deque<std::string,std::allocator<_Ty>>”的声明
+          with
+          [
+              _Ty=std::string
+          ]
+d:\eiconfig\code\eiconfigtool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\InfluxDB.h(77): warning C4251: “influxdb::InfluxDB::mTransport”: class“std::unique_ptr<influxdb::Transport,std::default_delete<_Ty>>”需要有 dll 接口由 class“influxdb::InfluxDB”的客户端使用
+          with
+          [
+              _Ty=influxdb::Transport
+          ]
+  d:\eiconfig\code\eiconfigtool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\InfluxDB.h(42): note: 参见“std::unique_ptr<influxdb::Transport,std::default_delete<_Ty>>”的声明
+          with
+          [
+              _Ty=influxdb::Transport
+          ]
+d:\eiconfig\code\eiconfigtool\3rdparty\influxdb-cxx\src\influxdb-cxx\include\InfluxDB.h(83): warning C4251: “influxdb::InfluxDB::mGlobalTags”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“influxdb::InfluxDB”的客户端使用
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include\xstring(4373): note: 参见“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”的声明
+d:\eiconfig\code\eiconfigtool\3rdparty\influxdb-cxx\src\influxdb-cxx\src\UriParser.h(90): warning C4101: “e”: 未引用的局部变量
+  HTTP.cxx
+D:\EIconfig\code\EIConfigTool\3rdparty\influxdb-cxx\src\influxdb-cxx\src\HTTP.cxx(45): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明
+D:\EIconfig\code\EIConfigTool\3rdparty\influxdb-cxx\src\influxdb-cxx\src\HTTP.cxx(85): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  正在生成代码...
+    正在创建库 D:/EIconfig/code/EIConfigTool/3rdparty/influxdb-cxx/src/cmake_build/lib/Release/InfluxDB.lib 和对象 D:/EIconfig/code/EIConfigTool/3rdparty/influxdb-cxx/src/cmake_build/lib/Release/InfluxDB.exp
+  InfluxDB.vcxproj -> D:\EIconfig\code\EIConfigTool\3rdparty\influxdb-cxx\src\cmake_build\.\lib\Release\InfluxDB.dll

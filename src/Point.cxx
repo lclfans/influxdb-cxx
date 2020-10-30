@@ -11,35 +11,55 @@
 
 namespace influxdb
 {
-
-template<class... Ts> struct overloaded : Ts... { using Ts::operator()...; };
-template<class... Ts> overloaded(Ts...) -> overloaded<Ts...>;
-
 Point::Point(const std::string& measurement) :
   mMeasurement(measurement), mTimestamp(Point::getCurrentTimestamp())
 {
-  mValue = {};
+  //mValue = {};
   mTags = {};
   mFields = {};
 }
 
-Point&& Point::addField(std::string_view name, std::variant<int, long long int, std::string, double> value)
+Point&& Point::addField(const std::string& name, double value)
 {
   std::stringstream convert;
   if (!mFields.empty()) convert << ",";
 
-  convert << name << "=";
-  std::visit(overloaded {
-    [&convert](int value) { convert << value << 'i'; },
-    [&convert](long long int value) { convert << value << 'i'; },
-    [&convert](double value) { convert << value; },
-    [&convert](const std::string& value) { convert << '"' << value << '"'; },
-    }, value);
+  convert << name << "=" << value; 
   mFields += convert.str();
   return std::move(*this);
 }
 
-Point&& Point::addTag(std::string_view key, std::string_view value)
+Point&& Point::addField(const std::string& name, int value)
+{
+  std::stringstream convert;
+  if (!mFields.empty()) convert << ",";
+
+  convert << name << "=" << value << 'i';
+  mFields += convert.str();
+  return std::move(*this);
+}
+
+Point&& Point::addField(const std::string& name, long long int value)
+{
+  std::stringstream convert;
+  if (!mFields.empty()) convert << ",";
+
+  convert << name << "=" << value << 'i';
+  mFields += convert.str();
+  return std::move(*this);
+}
+
+Point&& Point::addField(const std::string& name, const std::string& value)
+{
+  std::stringstream convert;
+  if (!mFields.empty()) convert << ",";
+
+  convert << name << "=" << '"' << value << '"';
+  mFields += convert.str();
+  return std::move(*this);
+}
+
+Point&& Point::addTag(const std::string& key, const std::string& value)
 {
   mTags += ",";
   mTags += key;
@@ -61,9 +81,13 @@ auto Point::getCurrentTimestamp() -> decltype(std::chrono::system_clock::now())
 
 std::string Point::toLineProtocol() const
 {
-  return mMeasurement + mTags + " " + mFields + " " + std::to_string(
+  std::string strTime = std::to_string(
     std::chrono::duration_cast <std::chrono::nanoseconds>(mTimestamp.time_since_epoch()).count()
   );
+  std::cout << "time is :" << strTime << std::endl;
+  return mMeasurement + mTags + " " + mFields + " " + strTime; /*std::to_string(
+    std::chrono::duration_cast <std::chrono::nanoseconds>(mTimestamp.time_since_epoch()).count()
+  );*/
 }
 
 std::string Point::getName() const

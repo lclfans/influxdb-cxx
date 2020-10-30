@@ -8,11 +8,23 @@
 #include "InfluxDB.h"
 #include "Transport.h"
 
+#ifndef INFLUX_API
+# ifdef _WIN32
+#ifdef INFLUX_LIB
+#define  INFLUX_API  __declspec(dllexport)
+#else
+#define  INFLUX_API  __declspec(dllimport)
+#endif
+# else
+#define  INFLUX_API
+# endif
+#endif
+
 namespace influxdb
 {
 
 /// \brief InfluxDB factory
-class InfluxDBFactory
+class INFLUX_API InfluxDBFactory
 {
  public:
    /// Disables copy constructor

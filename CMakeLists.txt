@@ -25,7 +25,10 @@ project(influxdb-cxx
 #add_subdirectory(doc)
 
 # Add compiler flags for warnings and debug symbols
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -Wextra")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -Wextra")
+if(CMAKE_COMPILER_IS_GNUCXX)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -Wextra")
+endif(CMAKE_COMPILER_IS_GNUCXX)
 
 # Set fPIC for all targets
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
@@ -48,7 +51,7 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 endif()
 
 # Fixes warning when using boost from brew
-set(Boost_USE_MULTITHREADED TRUE)
+#set(Boost_USE_MULTITHREADED TRUE)
 
 ####################################
 # Dependencies
@@ -56,7 +59,7 @@ set(Boost_USE_MULTITHREADED TRUE)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
-find_package(Boost COMPONENTS unit_test_framework system program_options)
+#find_package(Boost COMPONENTS unit_test_framework system program_options)
 find_package(CURL REQUIRED MODULE)
 
 
@@ -96,8 +99,13 @@ target_link_libraries(InfluxDB
     CURL::libcurl
 )
 
-# Use C++17
-target_compile_features(InfluxDB PUBLIC cxx_std_17)
+# Use C++11
+#target_compile_features(InfluxDB PUBLIC cxx_std_11)
+if(CMAKE_COMPILER_IS_GNUCXX)
+    target_compile_features(InfluxDB PUBLIC cxx_std_11)
+else()
+	target_compile_features(InfluxDB PUBLIC cxx_std_17)
+endif(CMAKE_COMPILER_IS_GNUCXX)
 
 # Set compile definition if Boost found
 target_compile_definitions(InfluxDB

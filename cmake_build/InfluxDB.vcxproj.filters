@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\EIconfig\code\EIConfigTool\3rdparty\influxdb-cxx\src\influxdb-cxx\src\InfluxDB.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\EIconfig\code\EIConfigTool\3rdparty\influxdb-cxx\src\influxdb-cxx\src\Point.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\EIconfig\code\EIConfigTool\3rdparty\influxdb-cxx\src\influxdb-cxx\src\InfluxDBFactory.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\EIconfig\code\EIConfigTool\3rdparty\influxdb-cxx\src\influxdb-cxx\src\HTTP.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\EIconfig\code\EIConfigTool\3rdparty\influxdb-cxx\src\influxdb-cxx\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{24B902F3-1B87-3C75-A02F-6086F31CC293}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -18,14 +18,24 @@
 
 namespace influxdb
 {
+#ifdef _WIN32
+	using namespace std;
+#else
+template<typename T, typename... Ts>
+std::unique_ptr<T> make_unique(Ts&&... params)
+{
+   return std::unique_ptr<T>(new T(std::forward<Ts>(params)...));
+}
+#endif
+
 
 #ifdef INFLUXDB_WITH_BOOST
 std::unique_ptr<Transport> withUdpTransport(const http::url& uri) {
-  return std::make_unique<transports::UDP>(uri.host, uri.port);
+  return make_unique<transports::UDP>(uri.host, uri.port);
 }
 
 std::unique_ptr<Transport> withUnixSocketTransport(const http::url& uri) {
-  return std::make_unique<transports::UnixSocket>(uri.path);
+  return make_unique<transports::UnixSocket>(uri.path);
 }
 #else
 std::unique_ptr<Transport> withUdpTransport(const http::url& /*uri*/) {
@@ -38,7 +48,7 @@ std::unique_ptr<Transport> withUnixSocketTransport(const http::url& /*uri*/) {
 #endif
 
 std::unique_ptr<Transport> withHttpTransport(const http::url& uri) {
-  auto transport = std::make_unique<transports::HTTP>(uri.url);
+  auto transport = make_unique<transports::HTTP>(uri.url1);
   if (!uri.user.empty()) {
     transport->enableBasicAuth(uri.user + ":" + uri.password);
   }
@@ -72,7 +82,7 @@ std::unique_ptr<Transport> InfluxDBFactory::GetTransport(std::string url) {
 
 std::unique_ptr<InfluxDB> InfluxDBFactory::Get(std::string url)
 {
-  return std::make_unique<InfluxDB>(InfluxDBFactory::GetTransport(url));
+  return make_unique<InfluxDB>(InfluxDBFactory::GetTransport(url));
 }
 
 } // namespace influxdb

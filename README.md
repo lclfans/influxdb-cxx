@@ -11,13 +11,14 @@ InfluxDB C++ client library
    - HTTP/HTTPS with Basic Auth
    - UDP
    - Unix datagram socket
-
+ - add windows support
+ - update to support C++11 for Linux OS
 
 ## Installation
 
  __Build requirements__
  - CMake 3.12+
- - C++17 compliler
+ - C++17(windows) C++11(linux) compliler
 
 __Dependencies__
  - CURL (required)
@@ -32,9 +33,9 @@ cmake ..
 sudo make install
  ```
 
-### macOS
-```bash
-brew install awegrzyn/influxdata/influxdb-cxx
+### windows
+```vs2017
+read file build.desc
 ```
 
 ## Quick start

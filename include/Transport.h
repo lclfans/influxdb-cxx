@@ -8,11 +8,23 @@
 #include <string>
 #include <stdexcept>
 
+#ifndef INFLUX_API
+# ifdef _WIN32
+#ifdef INFLUX_LIB
+#define  INFLUX_API  __declspec(dllexport)
+#else
+#define  INFLUX_API  __declspec(dllimport)
+#endif
+# else
+#define  INFLUX_API
+# endif
+#endif
+
 namespace influxdb
 {
 
 /// \brief Transport interface
-class Transport
+class INFLUX_API Transport
 {
   public:
     Transport() = default;

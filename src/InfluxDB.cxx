@@ -45,7 +45,7 @@ void InfluxDB::flushBuffer() {
   transmit(std::move(stringBuffer));
 }
 
-void InfluxDB::addGlobalTag(std::string_view key, std::string_view value)
+void InfluxDB::addGlobalTag(std::string& key, std::string& value)
 {
   if (!mGlobalTags.empty()) mGlobalTags += ",";
   mGlobalTags += key;

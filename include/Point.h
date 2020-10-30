@@ -9,11 +9,23 @@
 #include <chrono>
 #include <variant>
 
+#ifndef INFLUX_API
+# ifdef _WIN32
+#ifdef INFLUX_LIB
+#define  INFLUX_API  __declspec(dllexport)
+#else
+#define  INFLUX_API  __declspec(dllimport)
+#endif
+# else
+#define  INFLUX_API
+# endif
+#endif
+
 namespace influxdb
 {
 
 /// \brief Represents a point
-class Point
+class INFLUX_API Point
 {
   public:
     /// Constructs point based on measurement name
@@ -23,10 +35,13 @@ class Point
     ~Point() = default;
 
     /// Adds a tags
-    Point&& addTag(std::string_view key, std::string_view value);
+    Point&& addTag(const std::string& key, const std::string& value);
 
     /// Adds filed
-    Point&& addField(std::string_view name, std::variant<int, long long int, std::string, double> value);
+    Point&& addField(const std::string& name, int value);
+    Point&& addField(const std::string& name, long long int value);
+    Point&& addField(const std::string& name, const std::string& value);
+    Point&& addField(const std::string& name, double value);
 
     /// Generetes current timestamp
     static auto getCurrentTimestamp() -> decltype(std::chrono::system_clock::now());
@@ -51,7 +66,7 @@ class Point
 
   protected:
     /// A value
-    std::variant<long long int, std::string, double> mValue;
+    //std::variant<long long int, std::string, double> mValue;
 
     /// A name
     std::string mMeasurement;
