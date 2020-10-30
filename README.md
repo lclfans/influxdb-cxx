@@ -11,7 +11,8 @@ InfluxDB C++ client library
    - HTTP/HTTPS with Basic Auth
    - UDP
    - Unix datagram socket
-
+ -add windows support (in branch c++11)
+ -support c++11 in linux(in branch c++11)
 
 ## Installation
 
